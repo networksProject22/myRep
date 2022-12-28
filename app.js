@@ -31,7 +31,7 @@ app.get('/', function(req, res){
 app.post('/', function(req,res){
     var username = req.body.username;
     var pass = req.body.password;
-    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
+    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
     if(err) throw err;
     var db = client.db('MyDB');
     db.collection("FirstCollection").findOne({username:username},function(err,result){
@@ -59,7 +59,7 @@ app.get('/registration', function(req, res){
 app.post('/register', function(req, res){
     var username = req.body.username;
     var pass = req.body.password;
-    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
+    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
     if(err) throw err;
     var db = client.db('MyDB');
     db.collection("FirstCollection").findOne({username:username},function(err,result){
@@ -141,7 +141,7 @@ app.post('/search', function (req,res){
 
 
 app.post('/annapurna', function (req,res){
-    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
+    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
         if(err) throw err;
         var db = client.db('MyDB');
         if(req.session.user.togo.includes("annapurna")){
@@ -158,7 +158,7 @@ app.post('/annapurna', function (req,res){
 });
 
 app.post('/bali', function (req,res){
-    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
+    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
         if(err) throw err;
         var db = client.db('MyDB');
         if(req.session.user.togo.includes("bali")){
@@ -175,7 +175,7 @@ app.post('/bali', function (req,res){
 });
 
 app.post('/inca', function (req,res){
-    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
+    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
         if(err) throw err;
         var db = client.db('MyDB');
         if(req.session.user.togo.includes("inca")){
@@ -192,7 +192,7 @@ app.post('/inca', function (req,res){
 });
 
 app.post('/paris', function (req,res){
-    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
+    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
         if(err) throw err;
         var db = client.db('MyDB');
         if(req.session.user.togo.includes("paris")){
@@ -209,7 +209,7 @@ app.post('/paris', function (req,res){
 });
 
 app.post('/rome', function (req,res){
-    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
+    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
         if(err) throw err;
         var db = client.db('MyDB');
         if(req.session.user.togo.includes("rome")){
@@ -226,7 +226,7 @@ app.post('/rome', function (req,res){
 });
 
 app.post('/santorini', function (req,res){
-    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
+    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
         if(err) throw err;
         var db = client.db('MyDB');
         if(req.session.user.togo.includes("santorini")){
@@ -243,8 +243,8 @@ app.post('/santorini', function (req,res){
 });
 
 
-if(process.env.PORT){
-    app.listen(process.env.PORT, function() {console.log('Server started')});
+if(process.env.MONGODB_URI){
+    app.listen(process.env.MONGODB_URI, function() {console.log('Server started')});
 }
 else{
     app.listen(3000,function() {console.log('Server started on port 3000')});

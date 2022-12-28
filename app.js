@@ -44,13 +44,13 @@ app.get('/registration', function(req, res){
 app.post('/register', function(req, res){
     var username = req.body.username;
     var pass = req.body.password;
-    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
+    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
     if(err) throw err;
-    var db = client.db('MyDB');
-    db.collection("FirstCollection").findOne({username:username},function(err,result){
+    var db = client.db('myDB');
+    db.collection("myCollection").findOne({username:username},function(err,result){
         if(err) throw err;
         if(result == null){
-            db.collection("FirstCollection").insertOne({username:username,password:pass,togo:[]})
+            db.collection("myCollection").insertOne({username:username,password:pass,togo:[]})
             res.redirect('/');
         }
         else{
@@ -126,15 +126,15 @@ app.post('/search', function (req,res){
 
 
 app.post('/annapurna', function (req,res){
-    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
+    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
         if(err) throw err;
-        var db = client.db('MyDB');
+        var db = client.db('myDB');
         if(req.session.user.togo.includes("annapurna")){
             alert("already there");
         }else{
             req.session.user.togo.push("annapurna");
             req.session.save();
-            db.collection("FirstCollection").updateOne({username:req.session.user.username},{$set:{togo:req.session.user.togo}});
+            db.collection("myCollection").updateOne({username:req.session.user.username},{$set:{togo:req.session.user.togo}});
             res.redirect("/annapurna");
         }
         
@@ -143,15 +143,15 @@ app.post('/annapurna', function (req,res){
 });
 
 app.post('/bali', function (req,res){
-    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
+    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
         if(err) throw err;
-        var db = client.db('MyDB');
+        var db = client.db('myDB');
         if(req.session.user.togo.includes("bali")){
             alert("already there");
         }else{
             req.session.user.togo.push("bali");
             req.session.save();
-            db.collection("FirstCollection").updateOne({username:req.session.user.username},{$set:{togo:req.session.user.togo}});
+            db.collection("myCollection").updateOne({username:req.session.user.username},{$set:{togo:req.session.user.togo}});
             res.redirect("/bali");
         }
         
@@ -160,15 +160,15 @@ app.post('/bali', function (req,res){
 });
 
 app.post('/inca', function (req,res){
-    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
+    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
         if(err) throw err;
-        var db = client.db('MyDB');
+        var db = client.db('myDB');
         if(req.session.user.togo.includes("inca")){
             alert("already there");
         }else{
             req.session.user.togo.push("inca");
             req.session.save();
-            db.collection("FirstCollection").updateOne({username:req.session.user.username},{$set:{togo:req.session.user.togo}});
+            db.collection("myCollection").updateOne({username:req.session.user.username},{$set:{togo:req.session.user.togo}});
             res.redirect("/inca");
         }
         
@@ -177,15 +177,15 @@ app.post('/inca', function (req,res){
 });
 
 app.post('/paris', function (req,res){
-    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
+    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
         if(err) throw err;
-        var db = client.db('MyDB');
+        var db = client.db('myDB');
         if(req.session.user.togo.includes("paris")){
             alert("already there");
         }else{
             req.session.user.togo.push("paris");
             req.session.save();
-            db.collection("FirstCollection").updateOne({username:req.session.user.username},{$set:{togo:req.session.user.togo}});
+            db.collection("myCollection").updateOne({username:req.session.user.username},{$set:{togo:req.session.user.togo}});
             res.redirect("/paris");
         }
         
@@ -194,15 +194,15 @@ app.post('/paris', function (req,res){
 });
 
 app.post('/rome', function (req,res){
-    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
+    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
         if(err) throw err;
-        var db = client.db('MyDB');
+        var db = client.db('myDB');
         if(req.session.user.togo.includes("rome")){
             alert("already there");
         }else{
             req.session.user.togo.push("rome");
             req.session.save();
-            db.collection("FirstCollection").updateOne({username:req.session.user.username},{$set:{togo:req.session.user.togo}});
+            db.collection("myCollection").updateOne({username:req.session.user.username},{$set:{togo:req.session.user.togo}});
             res.redirect("/rome");
         }
         
@@ -211,15 +211,15 @@ app.post('/rome', function (req,res){
 });
 
 app.post('/santorini', function (req,res){
-    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
+    MongoClient.connect("mongodb://127.0.0.1:27017", function(err, client){
         if(err) throw err;
-        var db = client.db('MyDB');
+        var db = client.db('myDB');
         if(req.session.user.togo.includes("santorini")){
             alert("already there");
         }else{
             req.session.user.togo.push("santorini");
             req.session.save();
-            db.collection("FirstCollection").updateOne({username:req.session.user.username},{$set:{togo:req.session.user.togo}});
+            db.collection("myCollection").updateOne({username:req.session.user.username},{$set:{togo:req.session.user.togo}});
             res.redirect("/santorini");
         }
         

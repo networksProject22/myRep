@@ -44,6 +44,17 @@ app.post('/', function(req,res){
    }
 });
 
+app.post('/errorLogin', function(req,res){
+    var username = req.body.username;
+    var pass = req.body.password;
+   if(username=="admin" && pass =="admin")
+            res.redirect('/home');
+   else{
+            res.redirect('errorLogin');
+           
+   }
+});
+
 app.get('/registration', function(req, res){
     res.render('registration');
    });

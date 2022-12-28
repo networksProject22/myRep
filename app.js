@@ -34,8 +34,8 @@ app.post('/', function(req,res){
    if(username=="admin" && pass =="admin")
             res.redirect('/home');
    else{
-            res.redirect('/');
-           alert("username not found");
+            res.redirect('errorLogin');
+           
    }
 });
 

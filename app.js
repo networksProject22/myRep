@@ -31,25 +31,10 @@ app.get('/', function(req, res){
 app.post('/', function(req,res){
     var username = req.body.username;
     var pass = req.body.password;
-    MongoClient.connect("mongodb+srv://networks:project@mydb.efqbqmt.mongodb.net", function(err, client){
-    if(err) throw err;
-    var db = client.db('MyDB');
-    db.collection("FirstCollection").findOne({username:username},function(err,result){
-        if(err) throw err;
-        if(result == null){
-            alert("username not found");
-        }
-        else{
-            if(result.password==pass){
-                res.redirect('/home');
-                req.session.user = result;
-                req.session.save();
-            }else {
-                alert("password wrong");
-            }
-        }
-    });
-    });
+   if(username=="admin" && pass =="admin")
+            res.redirect('/home');
+   else
+            alert("username not found")
 });
 
 app.get('/registration', function(req, res){

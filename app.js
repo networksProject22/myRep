@@ -34,7 +34,7 @@ app.post('/', function(req,res){
    if(username=="admin" && pass =="admin")
             res.redirect('/home');
    else
-            alert("username not found")
+            alert("username not found");
 });
 
 app.get('/registration', function(req, res){

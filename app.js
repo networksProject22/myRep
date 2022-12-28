@@ -83,7 +83,7 @@ app.get('/home', function(req, res){
 });
 
 app.get('/wanttogo', function(req, res){
-    res.render('wanttogo',{destToGo:req.session.user.togo});
+    res.render('wanttogo');
    });
 
 app.get('/hiking', function(req, res){

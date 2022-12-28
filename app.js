@@ -28,6 +28,11 @@ app.get('/', function(req, res){
  res.render('login');
 });
 
+app.get('/errorLogin', function(req, res){
+    res.render('errorLogin');
+   });
+
+
 app.post('/', function(req,res){
     var username = req.body.username;
     var pass = req.body.password;

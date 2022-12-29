@@ -79,51 +79,91 @@ app.post('/register', function(req, res){
    });
 
 app.get('/home', function(req, res){
+    if(req.session.user )
     res.render('home');
+    else
+    res.redirect('/');
 });
 
 app.get('/wanttogo', function(req, res){
+    if(req.session.user )
     res.render('wanttogo',{destToGo:req.session.user.togo});
+    else
+    res.redirect('/');
+    
    });
 
 app.get('/hiking', function(req, res){
+    if(req.session.user )
     res.render('hiking');
+    else
+    res.redirect('/');
    });
 
 app.get('/cities', function(req, res){
+    if(req.session.user )
     res.render('cities');
+    else
+    res.redirect('/');
+    
    });
 
 app.get('/islands', function(req, res){
+    if(req.session.user )
     res.render('islands');
+    else
+    res.redirect('/');
+    
    });
 
 app.get('/inca', function(req, res){
+    if(req.session.user )
     res.render('inca');
+    else
+    res.redirect('/');
+    
    });
 
 app.get('/rome', function(req, res){
+    if(req.session.user )
     res.render('rome');
+    else
+    res.redirect('/');
    });
 
 app.get('/searchresults', function(req, res){
+    if(req.session.user )
     res.render('searchresults');
+    else
+    res.redirect('/');
    });
 
 app.get('/santorini', function(req, res){
+    if(req.session.user )
     res.render('santorini');
+    else
+    res.redirect('/');
    });
 
 app.get('/bali', function(req, res){
+    if(req.session.user )
     res.render('bali');
+    else
+    res.redirect('/');
    });
 
 app.get('/annapurna', function(req, res){
+    if(req.session.user )
     res.render('annapurna');
+    else
+    res.redirect('/');
    });
 
 app.get('/paris', function (req,res){
-     res.render('paris');
+    if(req.session.user )
+    res.render('paris');
+    else
+    res.redirect('/');
     });
 app.post('/search', function (req,res){
     var s = req.body.Search;

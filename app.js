@@ -37,7 +37,9 @@ app.post('/', function(req,res){
     var username = req.body.username;
     var pass = req.body.password;
    if(username=="admin" && pass =="admin")
-            res.redirect('/home');
+       req.session.user = "admin";
+       req.session.save();
+       res.redirect('/home');
    else{
             res.redirect('errorLogin');
            
@@ -48,7 +50,9 @@ app.post('/errorLogin', function(req,res){
     var username = req.body.username;
     var pass = req.body.password;
    if(username=="admin" && pass =="admin")
-            res.redirect('/home');
+       req.session.user = "admin";
+       req.session.save();
+       res.redirect('/home');
    else{
             res.redirect('errorLogin');
            
